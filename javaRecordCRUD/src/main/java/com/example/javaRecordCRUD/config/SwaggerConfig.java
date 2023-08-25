@@ -1,9 +1,30 @@
 package com.example.javaRecordCRUD.config;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import lombok.RequiredArgsConstructor;
+import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@OpenAPIDefinition(
+        info = @Info(title = "17 Record Ex",
+                description = "Springboot 3.1.2 Product Ex",
+                version = "1.0.0"))
+@RequiredArgsConstructor
 @Configuration
 public class SwaggerConfig {
+
+    @Bean
+    public GroupedOpenApi Product() {
+        String[] paths = {"/api/products/**"};
+
+        return GroupedOpenApi.builder()
+                .group("Product CRUD")
+                .pathsToMatch(paths)
+                .build();
+    }
+
 
 //    @Bean
 //    public Docket product() {

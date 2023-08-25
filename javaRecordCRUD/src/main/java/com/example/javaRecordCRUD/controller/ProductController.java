@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/products")
 @RequiredArgsConstructor
 //@Api(tag = "상품 관리")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
 //    SwaggerURL : http://localhost:8080/swagger-ui/index.html
