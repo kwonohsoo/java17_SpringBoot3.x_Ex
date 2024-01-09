@@ -18,7 +18,6 @@ public class SwaggerConfig {
     @Bean
     public GroupedOpenApi Product() {
         String[] paths = {"/api/products/**"};
-
         return GroupedOpenApi.builder()
                 .group("Product CRUD")
                 .pathsToMatch(paths)

@@ -22,6 +22,7 @@ public class ProductController {
 //    @ApiOperation(value = "상품 생성 API", notes = "상품 생성")
     @PostMapping("/create")
     public ResponseEntity<ProductDTO.ProductResponse> createProduct(@RequestBody ProductDTO.ProductRequest request) {
+        System.out.println("request = " + request);
         ProductDTO.ProductResponse response = productService.createProduct(request);
         return ResponseEntity.ok(response);
     }
@@ -48,5 +49,10 @@ public class ProductController {
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Hello Wolrd";
     }
 }
